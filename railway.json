@@ -3,7 +3,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "go run cmd/server/main.go",
+    "startCommand": "go run main.go",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
   }
