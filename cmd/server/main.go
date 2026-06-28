@@ -31,8 +31,6 @@ r := chi.NewRouter()
 r.Use(middleware.Logger)
 r.Use(middleware.Recoverer)
 
-r.Handle("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("./web/static"))))
-
 r.Get("/", indexHandler)
 r.Post("/shorten", shortenHandler)
 r.Post("/api/v1/shorten", apiShortenHandler)
@@ -40,7 +38,6 @@ r.Get("/{shortID}", redirectHandler)
 r.Get("/links", linksHandler)
 
 log.Println("🚀 Сервер запущен на http://localhost:8080")
-log.Println("📍 Откройте в браузере: http://localhost:8080")
 log.Fatal(http.ListenAndServe(":8080", r))
 }
 
