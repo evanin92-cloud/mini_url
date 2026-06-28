@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация — Mini URL</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="logo">🔗 Mini URL</div>
+        <nav class="nav">
+            <a href="/">Главная</a>
+            <a href="/register" class="active">Регистрация</a>
+            <a href="/login">Вход</a>
+        </nav>
+    </header>
+    <main>
+        <section class="auth-section">
+            <div class="auth-card">
+                <h1>Регистрация</h1>
+                <form method="POST" action="/register">
+                    <div class="form-group">
+                        <label for="username">Имя пользователя</label>
+                        <input type="text" id="username" name="username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Электронная почта</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
+                    <p class="auth-link">Уже есть аккаунт? <a href="/login">Войти</a></p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 Mini URL</p>
+    </footer>
+</div>
+</body>
+</html>

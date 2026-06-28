@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: mini-url
+    runtime: go
+    plan: free
+    buildCommand: go build -o mini_url cmd/server/main_memory.go
+    startCommand: ./mini_url
+    envVars:
+      - key: PORT
+        value: 8080

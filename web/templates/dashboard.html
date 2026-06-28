@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет — Mini URL</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="logo">🔗 Mini URL</div>
+        <nav class="nav">
+            <a href="/dashboard" class="active">Личный кабинет</a>
+            <a href="/">Выход</a>
+        </nav>
+    </header>
+    <main>
+        <section class="dashboard">
+            <h1>Личный кабинет</h1>
+            <div class="shorten-section">
+                <div class="card">
+                    <h2>Создать новую ссылку</h2>
+                    <form id="shorten-form">
+                        <div class="form-group">
+                            <input type="url" id="original-url" class="form-control" placeholder="Введите длинный URL..." required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Сократить</button>
+                    </form>
+                    <div id="result" class="result hidden">
+                        <p>Ваша короткая ссылка:</p>
+                        <div class="short-url-container">
+                            <span id="short-url" class="short-url"></span>
+                            <button id="copy-btn" class="btn btn-secondary">Копировать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="links-section">
+                <h2>Мои ссылки</h2>
+                {{if .Links}}
+                {{range .Links}}
+                <div class="link-card">
+                    <div class="link-info">
+                        <span class="link-original">{{.OriginalURL}}</span>
+                        <span class="link-short">http://localhost:8080/{{.ShortID}}</span>
+                    </div>
+                    <div class="link-stats">
+                        <span>👁 {{.ClickCount}} переходов</span>
+                    </div>
+                </div>
+                {{end}}
+                {{else}}
+                <p>У вас пока нет ссылок</p>
+                {{end}}
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 Mini URL</p>
+    </footer>
+</div>
+<script src="/static/js/app.js"></script>
+</body>
+</html>
